@@ -100,8 +100,9 @@ public class KillAura extends Module {
 
         if (target != null && Utils.Player.isPlayerHoldingSword()) {
             if ((blockMode.getMode() == BlockMode.Legit) && (mc.thePlayer.prevSwingProgress < mc.thePlayer.swingProgress)) {
-                if (mc.thePlayer.ticksExisted % 15 == 0) {
+                if (mc.thePlayer.ticksExisted % 3 == 0) {
                     KeyBinding.onTick(mc.gameSettings.keyBindUseItem.getKeyCode());
+                    return;
                 }
             }
         }

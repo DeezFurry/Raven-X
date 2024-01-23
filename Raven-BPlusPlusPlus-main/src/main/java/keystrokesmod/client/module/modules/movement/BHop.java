@@ -52,23 +52,40 @@ public class BHop extends Module {
                 break;
 
             case Legit:
-                mc.thePlayer.setSprinting(false);
                 if (isMoving()) {
                     if (mc.thePlayer.onGround) {
                         mc.thePlayer.jump();
                      }
                 }
                 break;
-            case Vulcan: {
+            case Hypixel: 
                 if (mc.thePlayer.onGround && isMoving()) {
                     mc.thePlayer.jump();
-                    MoveUtil.strafe(0.44);
+                    MoveUtil.strafe(0.46);
                 }
-            }
-            break;
+                break;
+            case BlocksMC:
+                if (isMoving()) {
+                    if (mc.thePlayer.onGround) {
+                        mc.thePlayer.jump();
+                        MoveUtil.strafe(0.46);
+                    }
+                    if (MoveUtil.getSpeed() < 0.3) {
+                        MoveUtil.strafe(0.27);
+                    }
+                }
+                break;
+            case GroundStrafe:
+                if (isMoving()) {
+                    if (mc.thePlayer.onGround) {
+                        mc.thePlayer.jump();
+                        MoveUtil.strafe();
+                    }
+                }
+                break;
         }
     }
     public enum mode {
-        Blatant, Legit, Vulcan
+        Blatant, Legit, Hypixel, BlocksMC, GroundStrafe
     }
 }

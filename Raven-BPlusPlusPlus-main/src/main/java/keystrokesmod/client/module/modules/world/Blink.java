@@ -24,20 +24,9 @@ public class Blink extends Module {
 
     @Subscribe
     public void onPacket(PacketEvent e) {
-        if (e.isOutgoing()) {
-            if (e.getPacket() instanceof C03PacketPlayer) { //movement shit
-                e.setCancelled(true);
-            }
-            if (e.getPacket() instanceof C03PacketPlayer.C04PacketPlayerPosition
-                    || e.getPacket() instanceof C03PacketPlayer.C06PacketPlayerPosLook
-                    || e.getPacket() instanceof C08PacketPlayerBlockPlacement
-                    || e.getPacket() instanceof C0APacketAnimation
-                    || e.getPacket() instanceof C08PacketPlayerBlockPlacement
-                    || e.getPacket() instanceof C02PacketUseEntity
-                    || e.getPacket() instanceof C0FPacketConfirmTransaction) {
-                beforeblink.add(e.getPacket());
-                e.setCancelled(true);
-            }
+        if (e.isOutgoing() && mc.thePlayer.ticksExisted > 10) {
+            beforeblink.add(e.getPacket());
+            e.setCancelled(true);
         }
     }
     public void onDisable()
