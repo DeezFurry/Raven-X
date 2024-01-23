@@ -22,10 +22,8 @@ jobs:
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: Build
         run: chmod +x ./gradlew && ./gradlew setupCiWorkspace && ./gradlew build 
-      - name: Rename build artifacts
-        run: mv build/libs/FDPClient-*.jar build/libs/FDPClient-build.jar
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: FDPClient
-          path: build/libs/FDPClient-build.jar
+          name: RavenB-x
+          path: build/libs/*
