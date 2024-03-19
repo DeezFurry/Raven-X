@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+TweakOrder: 0
+MixinConfigs: mixins.keystrokesmod.json
+ModSide: CLIENT
+FMLCorePluginContainsFMLMod: true
+FMLAT: ravenMCP_at.cfg
+TweakClass: org.spongepowered.asm.launch.MixinTweaker
+ForceLoadAsMod: true
+FMLCorePlugin: keystrokesmod.client.mixin.MixinLoader
+
